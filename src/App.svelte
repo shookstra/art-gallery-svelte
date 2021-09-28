@@ -1,6 +1,7 @@
 <script>
 	import { fade } from "svelte/transition";
 	import Sidebar from "./components/Sidebar.svelte";
+	import Loading from "./components/Loading.svelte";
 
 	let displayingPhoto = false;
 	let imgSrc = "";
@@ -12,6 +13,7 @@
 </script>
 
 <main>
+	<Loading />
 	<Sidebar />
 	<ul class="posts">
 		{#if displayingPhoto}
@@ -29,51 +31,90 @@
 			</div>
 		{/if}
 		<li class="post">
-			<h2>Momtez</h2>
+			<h2>Field of Flowers III</h2>
 			<img
-				src="/images/momtez-finished.jpg"
-				alt="A portrait of Momtez"
+				src="/images/FieldOfFlowersIIICompressed(finished).webp"
+				alt="A painting of a field of flowers"
 				class="post-img"
-				on:click={() => setPhoto("images/momtez-finished.jpg")}
+				on:click={() =>
+					setPhoto(
+						"images/FieldOfFlowersIIICompressed(finished).webp"
+					)}
 			/>
 			<div class="small-pics">
 				<img
-					src="/images/momtez-drawing.jpg"
+					src="/images/FieldOfFlowersIIICompressed(unfinished).webp"
+					alt="An unfinished painting of a field of flowers"
+					class="small-pic"
+					on:click={() =>
+						setPhoto(
+							"images/FieldOfFlowersIIICompressed(unfinished).webp"
+						)}
+				/>
+			</div>
+			<div class="post-description">
+				<p>A gift for a friend. Happy birthday 🎉.</p>
+				<p>Acrylic on canvas.</p>
+				<p>Late September 2021</p>
+			</div>
+		</li>
+		<li class="post">
+			<h2>Momtez</h2>
+			<img
+				src="/images/momtez-finished.webp"
+				alt="A portrait of Momtez"
+				loading="lazy"
+				class="post-img"
+				on:click={() => setPhoto("images/momtez-finished.webp")}
+			/>
+			<div class="small-pics">
+				<img
+					src="/images/momtez-drawing.webp"
 					alt="An initial drawing of Momtez."
 					class="small-pic"
-					on:click={() => setPhoto("images/momtez-drawing.jpg")}
+					on:click={() => setPhoto("images/momtez-drawing.webp")}
 				/>
+				<picture class="small-pic">
+					<source
+						data-srcset="/images/momtez-unfinished-1.webp"
+						type="image/webp"
+					/>
+					<img
+						src="/images/momtez-unfinished-1.webp"
+						alt="An unfinished portrait of Momtez."
+						on:click={() =>
+							setPhoto("images/momtez-unfinished-1.webp")}
+					/>
+				</picture>
 				<img
-					src="/images/momtez-unfinished-1.jpg"
-					alt="An unfinished portrait of Momtez."
+					src="/images/momtez-unfinished-2.webp"
+					alt="An unfinished portrait of Momtez 2."
 					class="small-pic"
-					on:click={() => setPhoto("images/momtez-unfinished-1.jpg")}
+					loading="lazy"
+					on:click={() => setPhoto("images/momtez-unfinished-2.webp")}
 				/>
 				<img
-					src="/images/momtez-unfinished-2.jpg"
-					alt="AAn unfinished portrait of Momtez 2."
-					class="small-pic"
-					on:click={() => setPhoto("images/momtez-unfinished-2.jpg")}
-				/>
-				<img
-					src="/images/momtez-unfinished-3.jpg"
+					src="/images/momtez-unfinished-3.webp"
 					alt="An unfinished portrait of Momtez 3."
 					class="small-pic"
-					on:click={() => setPhoto("images/momtez-unfinished-3.jpg")}
+					loading="lazy"
+					on:click={() => setPhoto("images/momtez-unfinished-3.webp")}
 				/>
 				<img
-					src="/images/momtez-unfinished-angle.jpg"
+					src="/images/momtez-unfinished-angle.webp"
 					alt="An unfinished portrait of Momtez at an angle to show texture."
 					class="small-pic"
+					loading="lazy"
 					on:click={() =>
-						setPhoto("images/momtez-unfinished-angle.jpg")}
+						setPhoto("images/momtez-unfinished-angle.webp")}
 				/>
 				<img
-					src="/images/momtez-unfinished-wall.jpg"
+					src="/images/momtez-unfinished-wall.webp"
 					alt="An unfinished portrait of Momtez displayed on the wall."
 					class="small-pic"
+					loading="lazy"
 					on:click={() =>
-						setPhoto("images/momtez-unfinished-wall.jpg")}
+						setPhoto("images/momtez-unfinished-wall.webp")}
 				/>
 			</div>
 			<div class="post-description">
@@ -88,10 +129,10 @@
 		<li class="post">
 			<h2>Snowy Building</h2>
 			<img
-				src="/images/snowy-buildings.jpg"
+				src="/images/snowy-buildings.webp"
 				alt="A painting of snowy buildings"
 				class="post-img"
-				on:click={() => setPhoto("images/snowy-buildings.jpg")}
+				on:click={() => setPhoto("images/snowy-buildings.webp")}
 			/>
 			<div class="post-description">
 				<p>
@@ -105,10 +146,11 @@
 		<li class="post">
 			<h2>Flowers</h2>
 			<img
-				src="/images/flowers.jpg"
+				src="/images/flowers.webp"
 				alt="A painting of snowy buildings"
 				class="post-img"
-				on:click={() => setPhoto("images/flowers.jpg")}
+				loading="lazy"
+				on:click={() => setPhoto("images/flowers.webp")}
 			/>
 			<div class="post-description">
 				<p>A field of flowers.</p>
@@ -119,17 +161,19 @@
 		<li class="post">
 			<h2>Lemon</h2>
 			<img
-				src="/images/lemon.jpg"
+				src="/images/lemon.webp"
 				alt="A painting of snowy buildings"
 				class="post-img"
-				on:click={() => setPhoto("images/lemon.jpg")}
+				loading="lazy"
+				on:click={() => setPhoto("images/lemon.webp")}
 			/>
 			<div class="small-pics">
 				<img
-					src="/images/real-lemon.jpg"
+					src="/images/real-lemon.webp"
 					alt="A painting of snowy buildings"
 					class="small-pic"
-					on:click={() => setPhoto("images/real-lemon.jpg")}
+					loading="lazy"
+					on:click={() => setPhoto("images/real-lemon.webp")}
 				/>
 			</div>
 			<div class="post-description">
@@ -144,16 +188,18 @@
 		<li class="post">
 			<h2>Cloud Series</h2>
 			<img
-				src="/images/pink-cloud.jpg"
+				src="/images/pink-cloud.webp"
 				alt="A painting of snowy buildings"
 				class="post-img"
-				on:click={() => setPhoto("images/pink-cloud.jpg")}
+				loading="lazy"
+				on:click={() => setPhoto("images/pink-cloud.webp")}
 			/>
 			<img
-				src="/images/orange-cloud-1.jpg"
+				src="/images/orange-cloud-1.webp"
 				alt="A painting of snowy buildings"
 				class="post-img"
-				on:click={() => setPhoto("images/orange-cloud-1.jpg")}
+				loading="lazy"
+				on:click={() => setPhoto("images/orange-cloud-1.webp")}
 			/>
 			<div class="post-description">
 				<p>Series of three works. Clouds. More pictures to come.</p>
@@ -164,10 +210,11 @@
 		<li class="post">
 			<h2>Treeline</h2>
 			<img
-				src="/images/treeline.jpg"
+				src="/images/treeline.webp"
 				alt="A painting of snowy buildings"
 				class="post-img"
-				on:click={() => setPhoto("images/treeline.jpg")}
+				loading="lazy"
+				on:click={() => setPhoto("images/treeline.webp")}
 			/>
 			<div class="post-description">
 				<p>Night sky and treeline. First painting since 2017.</p>
@@ -210,15 +257,22 @@
 		width: 100%;
 		border-radius: 10px;
 		cursor: pointer;
+		-webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		-moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
 	}
 
 	.post-img {
+		background-color: #7fd1b9;
 		margin-top: 10px;
 		object-fit: cover;
 		object-position: center;
 		height: 400px;
 		width: 400px;
 		border-radius: 10px;
+		-webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		-moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
 	}
 
 	.small-pics {
@@ -228,8 +282,9 @@
 		overflow-x: auto;
 		overflow-y: hidden;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		margin-bottom: 5px;
+		height: 180px;
 		/* border: 1px solid red; */
 	}
 
@@ -239,9 +294,15 @@
 		object-position: center;
 		height: 150px;
 		width: 200px;
+		min-height: 125px;
+		min-width: 125px;
 		border-radius: 10px;
 		padding: 5px 5px 5px 0px;
 		margin: 0;
+		-webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		-moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		/* border: 2px solid red; */
 	}
 
 	.photo-modal {
@@ -282,6 +343,9 @@
 		padding: 10px;
 		max-width: 500px;
 		border-radius: 10px;
+		-webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		-moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
 	}
 
 	.modal-background {
