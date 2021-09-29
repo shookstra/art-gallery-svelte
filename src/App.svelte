@@ -30,6 +30,7 @@
 				</div>
 			</div>
 		{/if}
+		<h1 class="year-header" id="2021">2021</h1>
 		<li class="post">
 			<h2>Field of Flowers III</h2>
 			<img
@@ -56,6 +57,40 @@
 				<p>A gift for a friend. Happy birthday 🎉.</p>
 				<p>Acrylic on canvas.</p>
 				<p>Late September 2021</p>
+			</div>
+		</li>
+		<li class="post">
+			<h2>Kettle</h2>
+			<img
+				src="/images/Kettle(compressed).webp"
+				alt="A painting of an orange and yellow kettle with flowers on it."
+				class="post-img"
+				on:click={() => setPhoto("images/Kettle(compressed).webp")}
+			/>
+			<div class="post-description">
+				<p>
+					Inspired by another painting with a poem attached. I liked
+					the style and wanted to sort of recreate it. I don't have
+					the source anymore, but if I ever find it again I will
+					update this post with a link.
+				</p>
+				<p>Acrylic on canvas.</p>
+				<p>Mid August 2021</p>
+			</div>
+		</li>
+		<li class="post">
+			<h2>Field of Flowers II</h2>
+			<img
+				src="/images/FlowersII(compressed).webp"
+				alt="A painting of an orange and yellow kettle with flowers on it."
+				class="post-img"
+				Loading="lazy"
+				on:click={() => setPhoto("images/FlowersII(compressed).webp")}
+			/>
+			<div class="post-description">
+				<p>A field of flowers. Part two of a series</p>
+				<p>Acrylic on canvas.</p>
+				<p>Early August 2021</p>
 			</div>
 		</li>
 		<li class="post">
@@ -144,7 +179,7 @@
 			</div>
 		</li>
 		<li class="post">
-			<h2>Flowers</h2>
+			<h2>Field of Flowers I</h2>
 			<img
 				src="/images/flowers.webp"
 				alt="A painting of snowy buildings"
@@ -153,7 +188,7 @@
 				on:click={() => setPhoto("images/flowers.webp")}
 			/>
 			<div class="post-description">
-				<p>A field of flowers.</p>
+				<p>A field of flowers. Part one of a series.</p>
 				<p>Febrary 2021.</p>
 				<p>Acrylic on canvas</p>
 			</div>
@@ -185,6 +220,7 @@
 				<p>January 2021.</p>
 			</div>
 		</li>
+		<h1 class="year-header" id="2020">2020</h1>
 		<li class="post">
 			<h2>Cloud Series</h2>
 			<img
@@ -346,6 +382,11 @@
 		-webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
 		-moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
 		box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.35);
+		margin-top: 5px;
+	}
+
+	.post-description p:nth-child(even) {
+		margin: 5px 0px;
 	}
 
 	.modal-background {
@@ -356,6 +397,28 @@
 		bottom: 0;
 		top: 0;
 		background-color: rgba(0, 0, 0, 0.75);
+	}
+
+	.year-header {
+		position: relative;
+		width: 200px;
+		margin: 50px 0px 15px 15px;
+		position: relative;
+		font-size: 2.5em;
+		z-index: 0;
+	}
+
+	.year-header::before {
+		content: "";
+		position: absolute;
+		padding: 5px 10px;
+		border-radius: 10px;
+		background-color: #7fd1b9;
+		height: 15px;
+		width: 70px;
+		top: 30px;
+		left: 10px;
+		z-index: -1;
 	}
 
 	#photo-modal-img {

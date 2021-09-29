@@ -1,6 +1,11 @@
 <div class="sidebar">
     <h1 class="header">art gallery</h1>
     <h2 class="page-title">Home</h2>
+    <div class="years-links">
+        <h2>Year Directory</h2>
+        <a href="#2021" class="years-link"> 2021 </a>
+        <a href="#2020" class="years-link"> 2020 </a>
+    </div>
     <div class="about">
         <h2>About</h2>
         <p>
@@ -43,7 +48,7 @@
     .page-title {
         color: #dea19c;
         text-decoration: none;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         cursor: default;
         font-size: 1.75em;
     }
@@ -62,7 +67,7 @@
     }
 
     .mobile-support-message {
-        margin-top: 30px;
+        margin-top: 15px;
         text-align: center;
         background-color: #ecb0e1;
         height: 80px;
@@ -75,6 +80,23 @@
 
     .about-subsection {
         margin-top: 20px;
+    }
+
+    .years-links {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+
+    .years-link {
+        text-decoration: none;
+        font-size: 1.5em;
+        color: #dea19c;
+        cursor: pointer;
+    }
+
+    .years-link:hover {
+        text-decoration: line-through;
     }
 
     @media screen and (max-device-width: 1100px) {
